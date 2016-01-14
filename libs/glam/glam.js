@@ -65289,7 +65289,7 @@ glam.Prefabs.Skysphere = function(param)
 
 	} );
 
-	var geometry = new THREE.SphereGeometry( 5000, 32, 32 );
+	var geometry = new THREE.SphereGeometry( 10, 32, 32 );
 	geometry.applyMatrix( new THREE.Matrix4().makeScale( -1, 1, 1 ) );
 	var visual = new glam.Visual(
 			{ geometry: geometry,
