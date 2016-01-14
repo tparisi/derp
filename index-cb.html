@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./libs/glam/glam.js" ></script>
+<title>DERP - DOM-based EquiRectangular Photos</title>
+
+<style>
+	body{
+		margin: 0px;
+		background-color: #000;
+	}
+	
+	#ss1 {
+		sphere-image:url(./photos/474488503.717899.jpg);
+	}
+	
+	#viewer {
+		position:absolute;
+		width:100%;
+		height:100%;
+	}
+
+</style>
+<script>
+var skysphere = null;
+window.addEventListener('load', function() {
+
+	skysphere = document.getElementById("ss1");
+
+}, 
+false);
+
+
+</script>
+</head>
+<body>
+<div id="viewer">
+<glam>
+  <scene>
+	<renderer type="cardboard"></renderer>
+	<controller type="deviceOrientation"></controller>
+	<background id="ss1" type="sphere"></background>
+  </scene>
+</glam>
+</div>
+</body>
+</html>
