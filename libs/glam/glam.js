@@ -55261,7 +55261,7 @@ glam.GraphicsThreeJS.prototype.initRenderer = function(param)
     
     if (param.cardboard) {
     	this.cardboard = new THREE.StereoEffect(this.renderer);
-    	this.cardboard.setSize( window.innerWidth, window.innerHeight );
+    	this.cardboard.setSize( this.container.offsetWidth, this.container.offsetHeight );
     }
     
     // Placeholder for effects composer
@@ -55795,6 +55795,11 @@ glam.GraphicsThreeJS.prototype.onWindowResize = function(event)
 	{
 		this.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
 		this.camera.updateProjectionMatrix();
+	}
+
+	if (this.backgroundLayer && this.backgroundLayer.camera) {
+		this.backgroundLayer.camera.aspect = this.container.offsetWidth / this.container.offsetHeight;
+		this.backgroundLayer.camera.updateProjectionMatrix();
 	}
 }
 
