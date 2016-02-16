@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="./libs/glam/glam.js" ></script>
+<title>DERP - DOM-based EquiRectangular Photos</title>
+
+<style>
+	body{
+		margin: 0px;
+	}
+	
+	.description {
+		position:absolute;
+		font-family: sans-serif;
+		top:14px;
+	}
+
+	#l1 {
+		left:0px;
+	}
+	#l2 {
+		left:266px;
+	}
+	#l3 {
+		left:528px;
+	}
+	#l4 {
+		left:788px;
+	}
+
+
+	#thumbs {
+		position:absolute;
+		left:2%;
+		height:25%;
+
+	}
+
+	.thumb {
+		position:absolute;
+		top:40px;
+	}
+
+	#thumb1 {
+		left:0px;
+	}
+	#thumb2 {
+		left:266px;
+	}
+	#thumb3 {
+		left:528px;
+	}
+	#thumb4 {
+		left:788px;
+	}
+
+	#ss1 {
+		sphere-image:url(./photos/bardo1.jpg);
+	}
+	
+	#viewer {
+		position:absolute;
+		width:96%;
+		left:2%;
+		top:28%;
+		height:70%;
+	}
+
+</style>
+
+</head>
+<body>
+<div id="thumbs">
+	<label id="l1" class="description">stage</label>
+	<label id="l2" class="description">lounge</label>
+	<label id="l3" class="description">entry</label>
+	<label id="l4" class="description">center</label>
+	<img id="thumb1" class="thumb" src="./photos/th-bardo1.jpg" width="256" onclick="select(1);"/>
+	<img id="thumb2" class="thumb" src="./photos/th-bardo2.jpg" width="256" onclick="select(2);"/>
+	<img id="thumb3" class="thumb" src="./photos/th-bardo3.jpg" width="256" onclick="select(3);"/>
+	<img id="thumb4" class="thumb" src="./photos/th-bardo4.jpg" width="256" onclick="select(4);"/>
+</div>
+<div id="viewer">
+<glam>
+  <scene>
+	<background id="ss1" type="sphere"></background>
+  </scene>
+</glam>
+</div>
+<script>
+
+	function select(n) {
+		var url = "./photos/bardo" + n + ".jpg";
+		var skysphere = document.getElementById("ss1");
+		skysphere.glam.style["sphere-image"] = url;
+	}
+</script>
+</body>
+</html>
