@@ -43,13 +43,18 @@ function swapImage()
 {
    document.slide.src = root + path[i];
    if(i < path.length - 1) i++; else i = 0;
-   setTimeout("swapImage()",3000);
+   setTimeout("swapImage()", 30000);
 }
 window.onload=swapImage;
 
 function fullscreen() {
 	var slideshow = document.getElementById("slideshow");
-	slideshow.webkitRequestFullScreen();
+	if (slideshow.mozRequestFullScreen) {
+		slideshow.mozRequestFullScreen();		
+	}
+	else if (slideshow.webkitRequestFullScreen) {
+		slideshow.webkitRequestFullScreen();		
+	}
 }
 
 
@@ -58,7 +63,7 @@ function fullscreen() {
 <body style="background-color:black;">
 <div id="slideshow">
 
-	<img name="slide" src="" width="500" height="708" onclick="fullscreen();"/>
+	<img name="slide" src="" width="500" height="708" onclick="fullscreen();" ontouchend="fullscreen();"/>
 	<div id="copyright" style="position:absolute;bottom:32px;color:white;left:640px;font-family:sans-serif;">
 		images by <a href='https://www.instagram.com/thebutcherbilly/' target="_blank" style="color:cornflowerblue;">thebutcherbilly</a>
 	</div>
